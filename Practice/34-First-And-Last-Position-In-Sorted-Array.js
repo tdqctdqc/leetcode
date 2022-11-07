@@ -1,12 +1,12 @@
 var searchRange = function(nums, target) {
-    let left = binarySearch(nums, target);
+    let left = binarySearchLeftmost(nums, target);
     if(left === nums.length || nums[left] !== target) return [-1,-1];
-    let right = binarySearch(nums, target + 1);
+    let right = binarySearchLeftmost(nums, target + 1);
     return [left, right - 1];
 }
 
 
-function binarySearch(nums, target) {
+function binarySearchLeftmost(nums, target) {
     let left = 0;
     let right = nums.length;
     while(left < right) {

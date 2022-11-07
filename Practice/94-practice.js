@@ -2,8 +2,8 @@ var inorderTraversal = function(root) {
     let arr = [];
     let stack = [];
     let curr = root;
-    while(curr != null || stack.length > 0) {
-        while(curr != null) {
+    while(curr || stack.length) {
+        while(curr) {
             stack.push(curr);
             curr = curr.left;
         }
@@ -11,4 +11,5 @@ var inorderTraversal = function(root) {
         arr.push(curr.val);
         curr = curr.right;
     }
+    return arr;
 };

@@ -3,16 +3,12 @@ var canJump = function(nums) {
     let curEnd = 0;
     let curFarthest = 0;
     for (let i = 0; i < nums.length - 1; i++) {
-        let maxRange = nums[i] + i;
-        if(maxRange > curFarthest) {
-            curFarthest = maxRange;
-        }
+        curFarthest = Math.max(curFarthest, i + nums[i]);
         if(curFarthest >= nums.length - 1) return true;
-        if(i === curEnd){ 
+        if(i === curEnd) {
             if(curEnd === curFarthest) return false;
             curEnd = curFarthest;
         }
     }
     return false;
-};
-
+}
